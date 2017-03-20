@@ -24,6 +24,8 @@ colnames(Data)[1] = "y"
 
 #install.packages("randomForest")
 #install.packages("caret")
+#install.packages("e1071")
+library("e1071")
 library("caret")
 library("randomForest")
 ######################################################################
