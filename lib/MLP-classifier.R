@@ -17,11 +17,11 @@ Test = read.csv("Test_nn.csv",as.is = T,header = T)
 ########################################################################################
 ## (2)loading library ##
 
-R.version
-#if your R version is not 3.3.3(2017-03-06),update it first by running:
-install.packages("installr")
-installr::install.R()
-install.packages("RSNNS")
+# R.version
+# #if your R version is not 3.3.3(2017-03-06),update it first by running:
+# install.packages("installr")
+# installr::install.R()
+# install.packages("RSNNS")
 
 library(RSNNS)
 ########################################################################################
@@ -51,11 +51,14 @@ cat(paste("It takes",etm[3],"sec to train.\n",
 
 #Since One hidden layer is always sufficient for the large majority of problems.
 #Let's first tune the number of units in the hidden layer(size)
+## and tune the iteration number ##
 #a suitable size can tackle overfit
-for(i in 5:20){
+set.seed(129)
+for(i in 5:30 ){
+  for(j in 10:30){
   stm = proc.time()
   MLP = mlp(Train[,2:ncol(Train)], Train[,1], 
-            size = c(i), maxit = 20,
+            size = c(i), maxit = j,
             initFunc = "Randomize_Weights", initFuncParams = c(-0.3, 0.3),
             learnFunc = "Std_Backpropagation", learnFuncParams = c(0.1, 0),
             updateFunc = "Topological_Order", updateFuncParams = c(0),
@@ -70,43 +73,23 @@ for(i in 5:20){
   predictions <- predict(MLP,Test[,2:ncol(Test)])
   predictions = ifelse(predictions>0.5,1,0)
   TestAccu = (1-mean(predictions!=Test[,1]))*100
-  cat(paste("It takes",etm[3],"sec to train.\n",
+  cat(paste("It takes","C(",i,"),iter=",j,":",etm[3],"sec to train.\n",
             "Accuracy on the Train set: ",TrainAccu,"%\n",
             "Accuracy on the Test set: ",TestAccu,"%\n"))
   
-}
-
-## tune the iteration number ##
-for(i in 10:30){
-  stm = proc.time()
-  MLP = mlp(Train[,2:ncol(Train)], Train[,1], 
-            size = c(20), maxit = i,
-            initFunc = "Randomize_Weights", initFuncParams = c(-0.3, 0.3),
-            learnFunc = "Std_Backpropagation", learnFuncParams = c(0.1, 0),
-            updateFunc = "Topological_Order", updateFuncParams = c(0),
-            hiddenActFunc = "Act_Logistic", shufflePatterns = TRUE, linOut = FALSE)
-  etm = proc.time()-stm
-  predictions_train <- predict(MLP,Train[,2:ncol(Test)])
-  predictions_train = ifelse(predictions_train>0.5,1,0)
-  TrainAccu = (1-mean(predictions_train!=Train[,1]))*100
-  
-  predictions <- predict(MLP,Test[,2:ncol(Test)])
-  predictions = ifelse(predictions>0.5,1,0)
-  TestAccu = (1-mean(predictions!=Test[,1]))*100
-  cat(paste("It takes",etm[3],"sec to train.\n",
-            "Accuracy on the Train set: ",TrainAccu,"%\n",
-            "Accuracy on the Test set: ",TestAccu,"%\n"))
-  
+  }
 }
 
 stm = proc.time()
 MLP = mlp(Train[,2:ncol(Train)], Train[,1], 
-          size = c(20), maxit = 17,
+          size = c(28), maxit = 13,
           initFunc = "Randomize_Weights", initFuncParams = c(-0.3, 0.3),
           learnFunc = "Std_Backpropagation", learnFuncParams = c(0.1, 0),
           updateFunc = "Topological_Order", updateFuncParams = c(0),
           hiddenActFunc = "Act_Logistic", shufflePatterns = TRUE, linOut = FALSE)
 etm = proc.time()-stm
+########################################################################################
+## (4)Accuracy and time##
 predictions_train <- predict(MLP,Train[,2:ncol(Test)])
 predictions_train = ifelse(predictions_train>0.5,1,0)
 TrainAccu = (1-mean(predictions_train!=Train[,1]))*100
@@ -117,4 +100,4 @@ TestAccu = (1-mean(predictions!=Test[,1]))*100
 cat(paste("It takes",etm[3],"sec to train.\n",
           "Accuracy on the Train set: ",TrainAccu,"%\n",
           "Accuracy on the Test set: ",TestAccu,"%\n"))
-#Train 94% Test 89.5%
+#Train 93% Test 90%
