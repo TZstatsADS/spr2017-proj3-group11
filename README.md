@@ -5,7 +5,7 @@
 
 Term: Spring 2017
 
-+ Team # 11
++ Team 11
 + Team members
 	+ Peng, Ruxue rp2815@columbia.edu
 	+ Ruscassie, Raphael rlr2166@columbia.edu
