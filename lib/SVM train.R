@@ -32,23 +32,27 @@ Test = Data[-index,]
 #############################
 
 #start the clock
-ptm <- proc.time()
+stm = proc.time()
 ## SVM linear 
 linear.svm<-svm(x =Train[,-1] ,y =Train[,1], cost = 100,type="C-classification", kernel = "linear",sampling="cross",cross=5)
 # Stop the clock
-proc.time() - ptm 
+etm = proc.time()-stm
 
 ##Train error
 pred.svm.linear <- predict(linear.svm, Train[,-1]) 
-# test error
 train.error.linear <- sum(pred.svm.linear != Train[,1]) / length(Train[,1]) 
-print(train.error.linear)
+Train.Accuracy<-1-train.error.linear
+
 
 ##predict
 pred.svm.linear <- predict(linear.svm, Test[,-1]) 
 # test error
 error.linear <- sum(pred.svm.linear != Test[,1]) / length(Test[,1]) 
-print(error.linear)
+Test.Accuracy<-1-error.linear
+
+cat(paste("It takes",etm[3],"seconds to train.\n",
+          "Accuracy on the Train set: ",Train.Accuracy,"%\n",
+          "Accuracy on the Test set: ",Test.Accuracy,"%\n"))
 
 
 
