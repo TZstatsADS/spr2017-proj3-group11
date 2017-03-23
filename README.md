@@ -5,13 +5,13 @@
 
 Term: Spring 2017
 
-+ Team #
++ Team # 11
 + Team members
-	+ team member 1
-	+ team member 2
-	+ team member 3
-	+ team member 4
-	+ team member 5
+	+ Peng, Ruxue rp2815@columbia.edu
+	+ Ruscassie, Raphael rlr2166@columbia.edu
+	+ Tang, Yifei yt2547@columbia.edu 
+	+ Zhou, Chengcen cz2432@columbia.edu
+	+ Zhu, Hongyi hz2412@columbia.edu
 
 + Project summary: In this project, we created a classification engine for grayscale images of poodles versus images of fried chickens. 
 	
