@@ -4,9 +4,11 @@ Project 3
 
 Team members:+ Ruxue Peng, Raphaël Ruscassie, Yifei Tang, Chengcen Zhou, Hongyi Zhu
 
-Summary: In this project, we explored different methods for feature extraction and classification. We are able to achieve a classification accuracy for images of poodle dogs and fried chicken of 90%. 
+Summary: In this project, we explored different methods for feature extraction and classification. After trying out things, we choose lasso for dimension reduction and the multilayer perceptron classifier, which belongs to the family of neural network.  
+We are able to achieve a classification accuracy for images of poodle dogs and fried chicken of 90%. 
 
-[Contribution Statement] 
+[Contribution Statement]   
+
 (1)Data preprocessing: Raphaël, Hongyi, Ruxue  
 (2)Feature Selection: Raphaël, Hongyi, Ruxue, Chengcen  
 (3)Finding Classifier: Ruxue, Yifei  
