@@ -1,6 +1,14 @@
 # Project: Labradoodle or Fried Chicken? 
 
-### Data folder
+### Data folder  
+We use 2000 images as data. Divide train/test ratio as 80/20  
 
-The data directory contains data used in the analysis. This is treated as read only; in paricular the R/python files are never allowed to write to the files in here. Depending on the project, these might be csv files, a database, and the directory itself may have subdirectories.
+labels.csv contain the label for the 2000 images.  
+
+sift_features.csv inside the sift_features folder contain the SIFT feature of the 2000 images.  
+
+Train_nn.csv and Test_nn.csv contain the training set and testing set for Neural Network Classifier  
+
+Train_svm.csv and Test_svm.csv contain the training set and testing set for SVM Classifier  
+(The reason for the different data preprocessing is that NN Classifier needs extra scaling while SVM does not.)  
 
