@@ -2,9 +2,9 @@
 ### Main execution script for experiments ###
 #############################################
 
-### Author:	+ Ruxue Peng, Raphaël Ruscassie, Yifei Tang, Connie Zhou, Hongyi Zhu
+### Author: Yuting Ma
 ### Project 3
-### ADS Spring 2017
+### ADS Spring 2016
 
 ### Specify directories
 setwd("./proj3_sample")
