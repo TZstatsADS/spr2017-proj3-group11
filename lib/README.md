@@ -4,6 +4,8 @@
 
 ### Reproduction  
 
+To retrain the baseline, you can use the trunk in main.rmd in the doc folder directly.  For further info, check out the baseline folder here.  
+
 To reproduce the data preprocess for MLP classifier and the SVM classifier, please source feature_selection.R  
 (For data preprocess for MLP, you'll need to call the function feature_selection_mlp(); for data preprocess for SVM, you'll need to call the function feature_selection_svm())  
 
