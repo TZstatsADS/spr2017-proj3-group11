@@ -20,11 +20,11 @@ Following [suggestions](http://nicercode.github.io/blog/2013-04-05-projects/) by
 
 ```
 proj/
-â”œâ”€â”€ lib/
-â”œâ”€â”€ data/
-â”œâ”€â”€ doc/
-â”œâ”€â”€ figs/
-â””â”€â”€ output/
+lib/
+data/
+doc/
+figs/
+output/
 ```
 
 Please see each subfolder for a README file.
