@@ -1,6 +1,6 @@
 ---
 title: "Project 3 - group 11
-author:  Ruxue Peng, Raphaël Ruscassie, Yifei Tang, Connie Zhou, Hongyi Zhu
+author:  Ruxue Peng, RaphaÃ«l Ruscassie, Yifei Tang, Connie Zhou, Hongyi Zhu
 date: "Mar 22, 2017"
 output:
   pdf_document: default
@@ -11,13 +11,25 @@ Check for installed packages
 
 ```{r, include=False}
 rm(list=ls())
+#R.version
+#if your R version is not 3.3.3(2017-03-06), before you proceed, update it first by running:
+install.packages("installr")
+installr::install.R()
+
+packages.used=c("plyr","glmnet","gbm","RSNNS","e1071","caret")
+
+# check packages that need to be installed.
+packages.needed=setdiff(packages.used, 
+                        intersect(installed.packages()[,1], 
+                                  packages.used))
+# install additional packages
+if(length(packages.needed)>0){
+  install.packages(packages.needed, dependencies = TRUE)
+}
+
 if(!require("EBImage")){
   source("https://bioconductor.org/biocLite.R")
   biocLite("EBImage")
-}
-
-if(!require("gbm")){
-  install.packages("gbm")
 }
 
 library("EBImage")
