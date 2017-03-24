@@ -1,6 +1,6 @@
 ---
 title: "Project 3 - group 11"
-author: "Ruxue Peng, Rapha�f«l Ruscassie, Yifei Tang, Connie Zhou, Hongyi Zhu"
+author: "Ruxue Peng, Rapha?f«l Ruscassie, Yifei Tang, Connie Zhou, Hongyi Zhu"
 date: "Mar 22, 2017"
 output: pdf_document: 
   latex_engine: xelatex
@@ -11,7 +11,21 @@ output: pdf_document:
 ### Step 0: Check for installed packages 
 
 ```{r,message = FALSE}
+if(!require("EBImage")){
+  source("https://bioconductor.org/biocLite.R")
+  biocLite("EBImage")
+}
 
+packages.used=c("gbm", "glmnet", "plyr", "RSNNS","e1071", "caret")
+
+# check packages that need to be installed.
+packages.needed=setdiff(packages.used, 
+                        intersect(installed.packages()[,1], 
+                                  packages.used))
+# install additional packages
+if(length(packages.needed)>0){
+  install.packages(packages.needed, dependencies = TRUE)
+}
 library("EBImage")
 library("gbm")
 library("glmnet")
