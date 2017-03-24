@@ -1,3 +1,8 @@
+#since NN Classifier needs extra scaling of the data while SVM does not,
+#we wrote 2 separate functions of data preprocess and feature selection 
+
+#Fea is the Feature table, where row is obs and column is feature
+#y is the label table, where ncol = 1
 feature_selection_mlp = function (Fea, y)
 
 {
@@ -41,7 +46,8 @@ feature_selection_mlp = function (Fea, y)
 
 
 
-
+#Fea is the Feature table, where row is obs and column is feature
+#y is the label table, where ncol = 1
 feature_selection_svm = function(Fea, y)
   
 {
