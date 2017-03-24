@@ -6,18 +6,25 @@
 
 To retrain the baseline, you can use the trunk in main.rmd in the doc folder directly.  For further info, check out the baseline folder here.  
 
-To reproduce the data preprocess for MLP classifier and the SVM classifier, please source feature_selection.R  
-(For data preprocess for MLP, you'll need to call the function feature_selection_mlp(); for data preprocess for SVM, you'll need to call the function feature_selection_svm())  
+To reproduce the data preprocess for MLP classifier and the SVM classifier, please go to feature_selection.R 
 
 To use processed data directly, please go to the data folder.  
 
-To retrain the MLP and linear SVM classifier, please go to train.R 
+(For data preprocess for MLP, you'll need to call the function feature_selection_mlp(); for data preprocess for SVM, you'll need to call the function feature_selection_svm())  
 
-To examine the code for MLP classifier alone, please go to MLP-classifier.R for R coder, go to Neural Network.ipynb for python coder.  
+To retrain the MLP and linear SVM classifier, please go to train.R  
 
-To examine the code for linear SVM classifier alone, please go to SVM train.R for R coder, go to linear_svm.ipynb for python coder.  
+To test your data on the classfier, please go to test.R  
 
-### To find out the code of other classifiers we tried:
+### Examine the code for classifier in both R and Python
+
+To examine the code for MLP classifier alone, please go to Neural_Network_Classifier folder here:  
+MLP-classifier.R for R coder, go to Neural Network.ipynb for python coder.  
+
+To examine the code for linear SVM classifier alone, please go to SVM_Classifier folder here:  
+SVM train.R for R coder, go to linear_svm.ipynb for python coder.  
+
+### To find out other classifiers we tried:
 
 Passive Regressive Classifier:  PassiveRegressiveClassifer.ipynb  
 
