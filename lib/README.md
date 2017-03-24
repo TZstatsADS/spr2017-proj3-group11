@@ -2,5 +2,7 @@
 
 ### Code lib Folder
 
-The lib directory contains various files with function definitions (but only function definitions - no code that actually runs).
+To reproduce the data preprocess for MLP classifier, please go to data-processing.R
+To use processed data directly, please go to train_nn.csv and test_nn,csv in the data folder
+To reproduce the MLP classifier, please go to MLP-classifier.R
 
