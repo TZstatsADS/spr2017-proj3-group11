@@ -33,5 +33,5 @@ Further reference:
 [overfitting](https://en.wikipedia.org/wiki/Overfitting)  
 [Intro to deep learning](http://pages.cs.wisc.edu/~bolo/shipyard/neural/local.html)  
 [MLP classiier-Chapter 11 of this book](https://clio.columbia.edu/catalog/12260767?counter=2)  
-[neurolab] (https://pythonhosted.org/neurolab/intro.html)  
+[neurolab](https://pythonhosted.org/neurolab/intro.html)  
 [RSNNS-r package](https://cran.r-project.org/web/packages/RSNNS/RSNNS.pdf)  
