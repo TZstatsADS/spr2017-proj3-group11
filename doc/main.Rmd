@@ -53,9 +53,12 @@ source("../lib/train.R")
 Fea = read.csv("../data/sift_features/sift_features.csv",as.is = T, header = T)
 Fea = t(Fea) #the features as column, data object as row
 
-# for randomForest to use classification unstead of regression,
+# for classification instead of regression,
 # we need to factorize y
 y = read.csv("../data/labels.csv",as.is = T) #0 for chicken(not a dog), 1 for dog
+######################################################################
+## Data Preprocess for the advanced classifier##
+
 
 ```
 
