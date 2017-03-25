@@ -1,4 +1,4 @@
-Images,"Baseline (0 for chicken, 1 for dog)",Advanced 1,Advanced 2,,true value,,,
+Images,"Baseline (0 for chicken, 1 for dog)",Advanced 1(mlp),Advanced 2(svm),,true value,,,
 image_0001,0,0,0,,0,1,1,1
 image_0002,0,1,0,,0,1,0,1
 image_0003,1,1,1,,1,1,1,1
