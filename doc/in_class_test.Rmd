@@ -1,0 +1,66 @@
+
+Load new data
+```{r}
+library("gbm")
+library("glmnet")
+library(RSNNS)
+library(e1071)
+library(caret)
+
+NEWSIFT = read.csv("../data/sift_features/sift_features.csv")
+NEWSIFT = t(NEWSIFT)
+NEWSIFT = as.data.frame(NEWSIFT)
+NEWSIFT_colnames = c(paste0("Fea",1:(length(NEWSIFT))))
+colnames(NEWSIFT) = NEWSIFT_colnames
+
+
+
+```
+
+
+Baseline
+```{r}
+
+# note that object b in predict function is the model trained using old sift features.
+baseline.predict = predict(b, NEWSIFT)
+baseline.predict = ifelse(baseline.predict<0.5, 0,1)
+write.csv(baseline.predict, "../output/baseline_results.csv")
+```
+
+
+MLP
+```{r}
+# load a clean version of the data
+NEWSIFT = read.csv("../data/sift_features/sift_features.csv")
+NEWSIFT = t(NEWSIFT)
+NEWSIFT = as.data.frame(NEWSIFT)
+MLP_data = scale(NEWSIFT)
+maxs <- apply(MLP_data, 2, max) 
+mins <- apply(MLP_data, 2, min)
+MLP_data <- as.data.frame(scale(MLP_data, center = mins, scale = maxs - mins))
+  
+
+
+
+# load LASSO feature columns
+MLP_col = read.csv("../data/lasso_coefficients.csv")
+coef = MLP_col$coef
+coef = as.character(coef)
+MLP_features = MLP_data[,coef]
+
+MLP.predict = predict (MLP, MLP_features)
+MLP.predict = ifelse(MLP.predict<0.5, 0, 1)
+
+write.csv(MLP.predict, "../output/MLP_results.csv")
+```
+
+
+SVM
+```{r}
+SVM_features = NEWSIFT[, coef]
+SVM.predict = predict(SVM, SVM_features)
+
+write.csv(SVM.predict, "../output/SVM_results.csv")
+
+```
+
