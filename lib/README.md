@@ -14,7 +14,9 @@ To use processed data directly, please go to the data folder.
 
 To retrain the MLP and linear SVM classifier, please go to train.R  
 
-To test your data on the classfier, please go to test.R  
+To Cross Validate the MLP, please go to CV.R
+
+To test your data on the classfier, please go to in_class_test.Rmd  
 
 ### Examine the code for classifier in both R and Python
 
