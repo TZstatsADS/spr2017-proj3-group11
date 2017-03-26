@@ -31,24 +31,26 @@ write.csv(baseline.predict, "../output/baseline_results.csv")
 MLP
 ```{r}
 # load a clean version of the data
-NEWSIFT = read.csv("../data/sift_features/sift_features.csv")
+setwd("F:/second_term/test_data/test_data/sift_features")
+NEWSIFT = read.csv("sift_features.csv",as.is = T)
 NEWSIFT = t(NEWSIFT)
 NEWSIFT = as.data.frame(NEWSIFT)
-MLP_data = scale(NEWSIFT)
-maxs <- apply(MLP_data, 2, max) 
-mins <- apply(MLP_data, 2, min)
-MLP_data <- as.data.frame(scale(MLP_data, center = mins, scale = maxs - mins))
-  
+colnames(NEWSIFT) = paste0("V",1:(ncol(NEWSIFT)))
+```
 
-
-
+```{r}
 # load LASSO feature columns
 MLP_col = read.csv("../data/lasso_coefficients.csv")
 coef = MLP_col$coef
 coef = as.character(coef)
-MLP_features = MLP_data[,coef]
+NEWSIFT = NEWSIFT[,coef]
 
-MLP.predict = predict (MLP, MLP_features)
+#Scaling
+maxs <- apply(NEWSIFT, 2, max) 
+mins <- apply(NEWSIFT, 2, min)
+MLP_data <- as.data.frame(scale(NEWSIFT, center = mins, scale = maxs - mins))
+
+MLP.predict = predict(MLP, MLP_data)
 MLP.predict = ifelse(MLP.predict<0.5, 0, 1)
 
 write.csv(MLP.predict, "../output/MLP_results.csv")
